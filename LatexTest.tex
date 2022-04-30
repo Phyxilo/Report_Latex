@@ -1,0 +1,111 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+
+\graphicspath{ {/home/user/pictures/} }
+\newcommand{\xmark}{\ding{53}}%
+
+\begin{document}
+
+\begin{center}
+
+{\LARGE PROJECT PROPOSAL}
+
+\end{center}
+
+\begin{tabular}{ p{9em} p{8em} }
+\setlength{\parindent}{-2em}
+Name of the Student: & Emin Yüksel\\
+\setlength{\parindent}{-2em}
+Name of the Supervisor: & Ali Murat Güler\\
+\setlength{\parindent}{-2em}
+Project Title: & DsTau\\
+\end{tabular}
+
+\section{PROJECT SUMMARY}
+
+Neutrinos are leptons like electrons and, there are six leptons (electron, muon, tau and their neutrino counterparts). Since neutrinos are nearly massless and chargless unlike charged leptons, neutrino detection is a challenging process. Moreover, detecting Tau neutrino is even tougher than the others because most of the time Tau neutrinos produced by the oscillation of the other neutrinos. Therefore, cross-section measurement of the Tau neutrinos is considerably less accurate than the other neutrinos. So, the point of this experiment is decrease the uncertainty in the measurement of cross-section of Tau neutrinos. The method is using more effective Tau neutrino source which is a proton nucleus scattering and using machine learning techniques to separate background processes from the desired process. The plan is reconstructing the scattering process by a event generator then  estimating parameters with the result.
+
+\section{BACKGROUND}
+\label{sec:background}
+Measuring the cross-section of the neutrinos is crucial to understand Lepton Universality, which is an important principle for the Standard Model. In this experiment, proton-nucleus interaction used as a Tau neutrino source, but Tau neutrinos are not produced directly after scattering occurs. Instead after proton-nucleus interaction $D$ and $D_s$ charmed leptons produced, and $D_s$ meson decays into Tau and Tau neutrino (see Figure \ref{fig:process}). Therefore, to calculate cross-section of the Tau neutrino cross-section of $D_s$ also must be known.~\cite{aoki_ariga_dmitrievsky_firu_forshaw_fukuda_gornushkin_guler_haiduc_2019}
+
+\begin{figure}[htpb]
+\includegraphics[width=\linewidth]{dstauProcess.png}
+\caption{Tau neutrino production diagram.}
+\label{fig:process}
+\end{figure}
+
+Because of the lack of measurements of the $D_s$ production cross-section, longitudinal dependence ($n$) is unknown. In order to estimate $n$ value an event generator (Pythia~\cite{sjostrand_mrenna_skands_2007}/Fluka) can be used. Also, with the help of the reconstructed experiment kink angle and flight length can be estimated. By using these estimated values the accuracy of the emulsion layer for efficient measurement can be calculated. After parameters are obtained the experiment can be conducted and cross-section data can be collected. Then, with the help of TMVA desired data can be separated from background noise and errors. However, the efficiency of the measurements is still low, but it can be increased by applying thresholds to the parameters of particles.
+
+\section{METHOD}
+
+In this experiment, proton-nucleus interaction occurs. So, charmed particle production differential cross-section can be approximated as 
+\begin{equation}
+\frac{d^2{\sigma}}{d{x_f}\cdot d{p_t}^2} \propto (1-|x_f|)^n \cdot e^{-b\cdot p_t^2}
+\end{equation}
+Where $x_f$~\cite{olsson_2014} is Feynman x, $p_t$ is transverse momentum, $b$ is transverse dependence and n is longitudinal dependence parameter. As mentioned in the Background Section~\ref{sec:background} $n$ parameter depend on $D_s$ which unknown due to lack of measurement of cross-section $D_s$. Moreover, scattering occurs in deep inelastic regime. Therefore cross-section formula can be approximated as
+\begin{equation}
+\sigma_{\nu_\tau} = \sigma^{const}_{\nu_\tau} \cdot E \cdot K(E)
+\end{equation}
+Where $\sigma^{const}_{\nu_\tau}$ is energy independent cross-section, $E$ is Energy of the neutrino and $K(E)$ is Kinematic effect due to lepton mass~\cite{kodama_ushida_andreopoulos_saoulidou_tzanakos_yager_baller_boehnlein_freeman_lundberg_2016}.
+After $n$ obtained from the event generator, it can be put inside the equation.
+
+
+\section{WORK PACKAGES AND TIMELINE}
+\begin{table}[H]
+\centering
+\rowcolors{1}{black!0}{black!15!blue!5}
+\begin{tabular}{ | c || c | c | c | c | c | c | c | c | c | c | c | c | c | }
+\hline
+\multicolumn{14}{|c|}{Weeks}\\
+\hline
+\hline
+ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+\hline
+WP 1 & \xmark & \xmark & \xmark & & & & & & & & & & \\
+\hline
+WP 2 & & & \xmark & \xmark & \xmark & & & & & & & & \\
+\hline
+WP 3 & & & & & \xmark & \xmark & \xmark & \xmark & & & & & \\
+\hline
+WP 4 & & & & & & & & \xmark & \xmark & \xmark & & & \\
+\hline
+WP 5 & & & & & & & & & & \xmark & \xmark & \xmark & \xmark \\
+\hline
+WP 6 & & & & & & & & & & & \xmark & \xmark & \\
+\hline
+
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ | c | p{10cm} | }
+\hline
+\multicolumn{2}{ | c | }{Description of Work Packages} \\
+\hline\hline
+WP 1 & {\small Literature Search} \\
+\hline
+WP 2 & {\small Learn root sofware, analyze pythia/fluka monte carlo root files} \\
+\hline
+WP 3 & {\small Learn TMVA software, find discriminator parameters for signal events} \\
+\hline
+WP 4 & {\small Using machine learning techniques seperate signal from background} \\
+\hline
+WP 5 & {\small Prepare the written report} \\
+\hline
+WP 6 & {\small Prepare the poster} \\
+\hline
+\end{tabular}
+\end{table}
+
+\bibliography{dstau}{}
+\bibliographystyle{plain}
+\end{document}

@@ -1,0 +1,8 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}INTRODUCTION}{2}{section.0.1}
+\contentsline {section}{\numberline {2}METHOD}{3}{section.0.2}
+\contentsline {section}{\numberline {3}RESULTS AND DISCUSSION}{6}{section.0.3}
+\contentsline {subsection}{\numberline {3.1}PYTHIA Monte Carlo data analysis and signal data production}{7}{subsection.0.3.1}
+\contentsline {subsection}{\numberline {3.2}FLUKA Monte Carlo data analysis and background data production}{8}{subsection.0.3.2}
+\contentsline {subsection}{\numberline {3.3}Particle separation on TMVA}{11}{subsection.0.3.3}
+\contentsline {section}{\numberline {4}CONCLUSION}{13}{section.0.4}

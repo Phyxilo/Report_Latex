@@ -1,0 +1,233 @@
+\documentclass[12pt]{report}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+
+\graphicspath{ {/home/user/pictures/} }
+\newcommand{\xmark}{\ding{53}}
+
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{-4.0 cm}
+\begin{center}    
+\Large{PHYS400} \hfill \Large{2020-1}
+\rule{\linewidth}{0.2 mm} \\[5.0 cm]
+\end{center}
+   	
+\textsc{\Huge Final Report}\\[5.0 cm]				
+	
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\Large{Name of the Student} & Emin YÜKSEL
+\\ \hline
+\Large{Name of the Advisor} & Ali Murat GÜLER
+\\ \hline
+\Large{Project Title}       & Study of $D_s$ Decays with Machine Learning Techniques 
+\\ \hline
+\end{tabular}
+\end{center} 
+\end{titlepage}
+
+\tableofcontents
+\pagebreak
+
+\renewcommand{\thesection}{\arabic{section}}
+\section{INTRODUCTION}
+
+Measuring the cross-section of the neutrinos is crucial to understand Lepton Universality, which is an important principle for the Standard Model. In this experiment, proton-nucleus interaction is used as a Tau neutrino source, but Tau neutrinos are not produced directly after scattering occurs. Instead after proton-nucleus interaction, D-mesons ($D$, $D_s$ and $D0$) are produced, and $D_s$ meson decays into Tau and Tau neutrino (Figure \ref{fig:process}). Therefore, to calculate cross-section of the Tau neutrino cross-section of $D_s$ also must be known.~\cite{aoki_ariga_dmitrievsky_firu_forshaw_fukuda_gornushkin_guler_haiduc_2019}
+
+\begin{figure}[htp]
+\includegraphics[width=\linewidth]{dstauProcess.png}
+\caption{Tau neutrino production diagram.~\cite[p.~4]{aoki_ariga_dmitrievsky_firu_forshaw_fukuda_gornushkin_guler_haiduc_2019}}
+\label{fig:process}
+\end{figure}
+
+Neutrinos are leptons like electrons and, there are six leptons (electron, muon, tau, and their neutrino counterparts). Since neutrinos are nearly massless and neutral unlike charged leptons, neutrino detection is a challenging process. Moreover, detecting Tau neutrino is even tougher than the others because most of the time Tau neutrinos are produced by the oscillation of the other neutrinos. Therefore, cross-section measurement of the Tau neutrinos is considerably less accurate than the other neutrinos \ref{fig:cross}. So, the point of this experiment is to decrease the uncertainty in the measurement of the cross-section of Tau neutrinos.
+
+\newpage
+
+\section{METHOD}
+
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 6 cm]{LeptonCross.png}
+\caption{Cross-Section of three neutrino flavors.~\cite[p.~2]{aoki_ariga_dmitrievsky_firu_forshaw_fukuda_gornushkin_guler_haiduc_2019}}
+\label{fig:cross}
+\end{figure}
+
+The flight length and kink angle of $D_s$ are important characteristics that can be measured accurately in the DsTau experiment. The detector of DsTau is designed to fulfill this property. The DsTau experiment uses nuclear emulsion technology that presents sub-micron and a few mrad spatial and angular resolutions respectively.
+
+These two parameters have been studied by means of the Monte Carlo simulation. Using the Pythia event generator, proton-nucleon interactions at 400 GeV are generated to study Ds decays and Below flight length and kink angle distributions can be seen for each charmed hadron \ref{fig:result}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = \linewidth]{pythiaOut.png}
+\caption{Estimated flight length (left) and kink angle (right) distributions.~\cite[p.~5]{aoki_ariga_dmitrievsky_firu_forshaw_fukuda_gornushkin_guler_haiduc_2019}}
+\label{fig:result}
+\end{figure}
+
+
+As shown in Figure~\ref{fig:detector} detector module consist of two parts. The first part is the decay module which is made of tungsten and emulsion film. First, proton-nucleus scattering occurs in the tugsten plate then, the trajectory of charged daughters is detected in the emulsion films which provides a sub-micron spatial resolution. The second part of the detector is made of emulsion film and lead plates and, the purpose of this layer is momentum measurement. To measure momentum MCS Figure \ref{fig:MCS} (Multi Coulomb Scattering) method can be used~\cite{Agafonova_2012}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = \linewidth]{detector.png}
+\caption{Schematic view of detector module.~\cite[p.~6]{aoki_ariga_dmitrievsky_firu_forshaw_fukuda_gornushkin_guler_haiduc_2019}}
+\label{fig:detector}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = \linewidth]{MCS.jpg}
+\caption{Momentum measurement by MCS Method.~\cite[p.~6]{Agafonova_2012}}
+\label{fig:MCS}
+\end{figure}
+
+To obtain the cross-section of the Tau neutrino in deep inelastic collisions like in the DONuT experiment~\cite{kodama_ushida_andreopoulos_saoulidou_tzanakos_yager_baller_boehnlein_freeman_lundberg_2016} total cross-section formula will be used. 
+
+\begin{equation}
+\sigma_{\nu_\tau} = \sigma^{const}_{\nu_\tau} \cdot E \cdot K(E)
+\end{equation}
+
+Where $\sigma^{const}_{\nu_\tau}$ is energy independent cross-section, $E$ is energy of the neutrino and, $K(E)$ is kinematic effect due to lepton mass. Because of the uncertainty in the $D_s$ differential cross-section, $\sigma^{const}_{\nu_\tau}$ value is can be expressed in terms of n (longitudinal dependence parameter).
+
+\begin{equation}
+\sigma^{const}_{\nu_\tau} = 7.5(0.335n^{1.52}) \times 10^{-40} cm^{2} GeV^{-1}
+\end{equation}
+
+Moreover, by using $n = 6.1$ which, is obtained from the PYTHIA simulation~\cite{sjostrand_mrenna_skands_2007} for the DONuT experiment, $\sigma^{const}_{\nu_\tau}$ will be as
+
+\begin{equation}
+\sigma^{const}_{\nu_\tau} = (0.39 \pm 0.13 \pm 0.13) \times 10^{-38} cm^{2} GeV^{-1}
+\end{equation}
+
+\newpage
+
+\section{RESULTS AND DISCUSSION}
+
+From the computational reconstruction of the experiment, two results can be deduced. The first result is, with the event generator PYTHIA, kink angle and flight length of the $D_s$ and $\tau$ particles gathered \ref{fig:Result}. As seen on the figure \ref{fig:Result} mean of the kink angle of $\tau$ is around 6 mrad and the mean of the flight length figure \ref{fig:Result} of $D_s$ is around 3.5 mm. Hence, the accuracy of the emulsion films and the dimension of the films and plastic sheets must be chosen according to these results to take efficient measurements. The second result is, the method of separation of particles from each other and background noise. This method can be considered in three different sections, PYTHIA data analysis and signal data production, FLUKA data analysis and background data production, and particle separation on TMVA.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 12 cm]{KinkAngle.png}
+\includegraphics[width = 12 cm]{FlightLength.png}
+\caption{Distribution of kink angle and flight length of $D_s$ and $\tau$.}
+\label{fig:Result}
+\end{figure}
+
+
+\subsection{PYTHIA Monte Carlo data analysis and signal data production}
+
+400 GeV proton-nucleus interaction simulated with event generator PYTHIA. PYTHIA can produce only events that decay into desired particles. For this experiment, only $D_s-$ containing events generated and parameters of the parent ($D_s-$) and daughters ($\tau$, $\nu_\tau$, etc.) can be found. Since kink angle and flight length data can be obtained for each particle in PYTHIA, its data can be used while producing signal data.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 6 cm]{PythiaDataSS0.png}
+\includegraphics[width = 6 cm]{PythiaDataSS1.png}
+\caption{PYTHIA data output. Data on the left for event number 0, on the right for event number 1.}
+\label{fig:PythiaData}
+\end{figure}
+
+Before working on MC production with PYTHIA, must be understood how the PYTHIA data format looks like \ref{fig:PythiaData}. The PYTHIA data have been modified for the analysis as shown in \ref{fig:PythiaData}. The first value inside of parenthesis shows the event number and the next three numbers below event number show respectively $D_s$ daughter, $\tau$ daughter, and charm particle daughter size. This all process takes place inside the event loop, and there is a second loop for daughters of particles. From first “*” line to first “-” line $D_s-$ (-431) parameters produced. From first “-” line to the second “-” line daughters of $D_s-$ parameters produced. From the second “-” line to third “-” line $\tau$ (15) parameters produced. From third “-” line to second “*” line daughters of the $\tau$ parameters produced. In other words, each “-” line represents interactions in the Feynman diagram of DsTau \ref{fig:process} except the second “-” line since $\tau$ (15) in the third row is the duplication of $\tau$ in the second row.
+
+Furthermore, by using the momenta of the particles in each interaction, and with the help of the cosine rule, the kink angle of each particle is calculated. Also, flight length can be calculated straightforwardly by subtracting the decay position of the particle from the first position where the particle is produced. Then get the magnitude of that displacement vector.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 7 cm]{PythiaDsFLength.png}
+\includegraphics[width = 7 cm]{PythiaDsKAngle.png}
+\caption{Distribution of $D_s$ kink angle and flight length that is stored in ROOT file.}
+\label{fig:DsRoot}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 7 cm]{PythiaTauFLength.png}
+\includegraphics[width = 7 cm]{PythiaTauKAngle.png}
+\caption{Distribution of $\tau$ kink angle and flight length that is stored in ROOT file.}
+\label{fig:TauRoot}
+\end{figure}
+
+After kink angle and flight length data obtained, decay position, particle direction, kink angle, and flight length parameters are stored into a root file that contains $D_s$ \ref{fig:DsRoot} and $\tau$ \ref{fig:TauRoot} trees.
+
+\subsection{FLUKA Monte Carlo data analysis and background data production}
+
+For background processes, MC data have been generated using the FLUKA event generator. Proton-nucleus interactions are generated and stored in root format. This MC data contains hadron interaction that mimics the hadron decays. Therefore, it constitutes the background for $D_s$ decays.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 12 cm]{FlukaDataSS0.png}
+\includegraphics[width = 12 cm]{FlukaDataSS1.png}
+\caption{FLUKA data output. Data on the left for chain number 0, on the right for chain number 1.}
+\label{fig:FlukaData}
+\end{figure}
+
+Since FLUKA output is stored in the root file, it is easier to work on it and understand this time. FLUKA root file consists of chains. Each chain corresponds to a particle. As seen in figure \ref{fig:FlukaData} the first EVENT gives the number of the generated events, and the second event only shows the chain number in the events. For the flag, there are three options 111, 222, and 333. If the flag is 111, it means that the chain shows the first interaction, if the flag is 222, the chain shows the decay, and if the flag is 333, the chain shows the secondary interaction. “ParentId” is the particle that is shown in the current chain. The first three elements of the “IntInfo” is the 3-vector that gives energy and momentum of the parent. “IntVtx” gives the 3-vector of the interaction vertices. “Multip” shows the number of particles (daughters) produced after the interaction. “SecondaryId” is the FLUKA id of the daughters. “SecondaryInfo” shows the information of the daughters, and each daughter has four elements, and the first three of them are 3-vector of the direction vector. Therefore, “SecondaryId” and “SecondaryInfo” are written respectively.
+
+Before calculations of kink angle and flight length, neutral particles must be filtered out from the background data. Because in the real experiment, only charged particles will be detected on the emulsion film, neutral particles in the FLUKA data is filtered out.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = 7 cm]{FlukaFLength.png}
+\includegraphics[width = 7 cm]{FlukaKAngle.png}
+\caption{Graph of particles that is produced on DsTau by event generator FLUKA.}
+\label{fig:FlukaRoot}
+\end{figure}
+
+The same procedure to obtain kink angle and flight length on PYTHIA also can be applied to the FLUKA. However, unlike PYTHIA data, FLUKA loops over chains so, interactions will be determined by the flags. To find flight length, “IntVtx” of flag 333 particles will be subtracted and find displacement vector, and the rest of the process is the same. To find a kink angle each particle needs to be looped over multiplicity and find the angle between the direction of the particle in the “IntInfo” and the direction of the daughters in the “SecondaryInfo”. With this method kink angle in the first and second interactions can be calculated. However, since there is no interaction vertex data, it is not possible to calculate the flight length of the daughters of the FLUKA data that worked on. After kink angle and flight length are calculated, both stored in a root file \ref{fig:FlukaRoot} as background data.
+
+\subsection{Particle separation on TMVA}
+
+At this part of the analysis, signal data is separated from the background events using machine learning techniques. For this purpose, the TMVA package has been used. As a main discriminator or variable, flight length and kink angle are used. For signal events PYTHIA and for background events FLUKA event generator is used.
+
+Firstly a factory constructed on the TMVA, and as background data, background root trees are added. For the signal data, the first $D_s$ tree in the signal root file is added. Kink angle and flight length branches inside trees are added as a variable. Then, with the help of PYTHIA data \ref{fig:PythiaData}, found a point where the kink angle and flight length becomes zero and assumed them as the cut. For $D_s$ flight length cut: $flight < 40$, kink angle cut: $kink < 0.05$. Finally, added Likelihood, Fisher, MLP MVA methods. After that, the same procedure applied to the $\tau$ tree in the signal root, and cuts are found as flight length cut: $flight < 40$, kink angle cut: $kink < 0.02$. Then, the macro is compiled and run. 
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = \linewidth]{TMVAFLength.png}
+\includegraphics[width = \linewidth]{TMVAKAngle.png}
+\caption{TMVA results after background separation.}
+\label{fig:TMVARoot}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width = \linewidth]{BvsS_ROC.png}
+\caption{ROC curve of TMVA results.}
+\label{fig:ROC}
+\end{figure}
+
+TMVA results show $D_s$ separated with the 0.68 signal efficiency by the Likelihood method. In addition, as seen on the figure \ref{fig:TMVARoot} results consistent with signal data \ref{fig:Result}. Moreover, ROC Curve \ref{fig:ROC} is drawn by TMVA Gui. Also, ROC Integral values of Likelihood is 0.773, MLP is 0.747, and Fisher is 0.698. That is, Likelihood is the best method to separate $D_s$ decay from the background.
+
+\newpage
+
+\section{CONCLUSION}
+
+Due to the lack of information on $D_s$ production, the cross-section of the $\nu_\tau$ cannot be measured precisely. Since looking for $\nu_\tau$ that are produced by $D_s$ meson interaction, $\nu_\tau$ cross-section also dependent on $D_s$ cross-section. Therefore, to get information about $D_s$ interactions and get an idea of the properties of the instruments that will be used in the DsTau experiment, this computational experiment conducted. 
+
+Using the ROOT package TMVA and two discriminator variables signal is separated from the background data with 68\% efficiency by using the Likelihood method.
+
+\bibliography{dstau}{}
+\bibliographystyle{plain}
+\end{document}
